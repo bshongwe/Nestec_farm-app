@@ -1,0 +1,59 @@
+{
+    "version": "2.0",
+    "class": "dataset",
+    "href": "https://data.apps.fao.org/map/catalog/srv/api/records/59f7a5ef-2be4-43ee-9600-a6a9e9ff562a/attachments/MapSpam_Dimensions.json",
+    "label": "Crop Production Statistics - MAPSPAM 2010 (Global - 10km)",
+    "source": "https://data.apps.fao.org/map/catalog/srv/eng/catalog.search#/metadata/59f7a5ef-2be4-43ee-9600-a6a9e9ff562a",
+    "updated": "2013-04-19",
+    "value": [],
+    "id": [
+        "database",
+        "product"
+    ],
+    "size": [
+        3,
+        4
+    ],
+    "role": {
+        "metric": [
+            "database",
+            "product"
+        ]
+    },
+    "dimension": {
+        "database": {
+            "label": "Database",
+            "category": {
+                "index": {
+                    "CBS": 0,
+                    "IGC": 1,
+                    "PSD": 2
+                },
+                "label": {
+                    "CBS": "Commodity Balance Sheets (CBS|FAO)",
+                    "IGC": "International Grains Council (IGC)",
+                    "PSD": "Production, Supply and Distribution Online (PS&D|USDA)"
+                }
+            }            
+        },
+        "product": {
+            "label": "Product",
+            "category": {
+                "index": {
+                    "5": 0,
+                    "4": 1,
+                    "6": 2,
+                    "1": 3
+                },
+                "label": {
+                    "5": "Maize",
+                    "4": "Rice",
+                    "6": "Soybean",
+                    "1": "Wheat"
+                }
+            }
+        }
+    },
+    "extension": {
+    }
+}
