@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+
+# Build output (created by React)
+build/
+
+# Dependency directory (if applicable)
+vendor/
+
+# Coverage reports
+coverage/
+
+# Test output (if using Jest)
+.pytest_cache/
+
+# IDE specific files
+# Adjust based on your IDE
+.vscode/
+.idea/
+
+# Temporary files
+.DS_Store
+
+# Environment files
+.env*  # Ignores all files starting with ".env"
+
+# Editor temporary files
+*.swp
+*.swo
