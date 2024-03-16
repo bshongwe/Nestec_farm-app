@@ -7,10 +7,13 @@ import Navbar from './Navbar';
 function App() {
   return (
     <div className="App">
-      <VideoBackground />
+      {/* app components */}
       <Navbar />
-      <header className="App-header">
+      <VideoBackground />
+      <div className="logo-container"> {/* logo container */}
         <img src={logo} className="App-logo" alt="logo" />
+      </div>
+      <header className="App-header"> 
         <p>
           Empowering farmers, one harvest at a time.
         </p>

@@ -1,5 +1,7 @@
 .navbar {
   position: fixed;
+  justify-content: space-between;
+  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -16,6 +18,7 @@
 
 .navbar ul li {
   float: left;
+  display: inline;
 }
 
 .navbar ul li a {
@@ -24,4 +27,15 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  transition: color 0.3s ease-in-out; /* Transition effect for smooth color change */
+}
+
+.navbar a:hover {
+  color: lime; /* Neon green color */
 }

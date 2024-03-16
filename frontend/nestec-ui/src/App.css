@@ -9,7 +9,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: float 2s ease-in-out infinite; /* Applies floating animation */
   }
 }
 
@@ -28,11 +28,23 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Defines animation for floating effect */
+@keyframes float {
+  0% {
+    transform: translateY(0);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translateY(-20px); /* Adjusts floating distance */
   }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Positions logo container */
+.logo-container {
+  position: absolute;
+  top: 80px; /* Adjusts relative to navbar height */
+  left: 20px;
+  z-index: 999; /* Ensures logo appears above other content */
 }
