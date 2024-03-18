@@ -14,11 +14,11 @@ function home() {
       </div>
       <header className="Home-header">
 	<h1>NESTEC</h1>
-	{/* Video Component */}
-        <VideoComponent />
       </header>
       {/* Additional Body Content */}
       <div className="body-content">
+	{/* Video Component */}
+	<VideoComponent />
       </div>
     </div>
   );
