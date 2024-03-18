@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '../imgs/logo.png';
-import Navbar from '../Navbar';
+import Navbar from './Navbar';
+import VideoComponent from './VideoComponent';
+import './Home.css';
 
 function home() {
   return (
@@ -11,10 +13,13 @@ function home() {
         <img src={logo} className="Home-logo" alt="logo" />
       </div>
       <header className="Home-header">
-        <p>
-	  <strong>NESTEC</strong>
-        </p>
+	<h1>NESTEC</h1>
+	{/* Video Component */}
+        <VideoComponent />
       </header>
+      {/* Additional Body Content */}
+      <div className="body-content">
+      </div>
     </div>
   );
 }
