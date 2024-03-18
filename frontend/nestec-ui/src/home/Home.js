@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../imgs/logo.png';
-import Navbar from './Navbar';
+import Navbar from './Navbar-home';
 import VideoComponent from './VideoComponent';
 import './Home.css';
 
