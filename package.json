@@ -1,0 +1,26 @@
+{
+  "name": "nestec",
+  "version": "1.0.0",
+  "description": "a web-based agriculture app",
+  "main": "public/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bshongwe/Nestec_farm-app.git"
+  },
+  "keywords": [
+    "agriculture",
+    "farming",
+    "Node.js",
+    "Bootstrap",
+    "Firebase"
+  ],
+  "author": "Ernest B. Shongwe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bshongwe/Nestec_farm-app/issues"
+  },
+  "homepage": "https://github.com/bshongwe/Nestec_farm-app#readme"
+}
