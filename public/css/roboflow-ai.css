@@ -15,20 +15,20 @@ body {
 	font-size: 0.875rem;
 }
 
-a {
-	color: #606FC7;
+/*a {
+	color: green;
 	font-weight: 600;
 }
 
 a:hover {
-	color: #434190;
+	color: limegreen;
 }
 
 i {
 	position: absolute;
 	padding: 0.75rem;
 	color: #606FC7;
-}
+}*/
 
 span.icon {
 	position: absolute;
@@ -36,11 +36,11 @@ span.icon {
 	right: 0;
 }
 
-.header {
-	background-color: white;
+/*.header {
+	background-color: black;
 	padding: 1rem;
 	padding-bottom: 2.5rem;
-}
+}*/
 
 .header__grid {
 	display: grid;
@@ -60,7 +60,7 @@ span.icon {
 	margin-bottom: 0.5rem;
 	font-size: 0.875rem;
 	font-weight: 600;
-	color: #718096;
+	color: white;
 }
 
 .content {
@@ -122,12 +122,12 @@ span.icon {
 }
 
 input:disabled {
-	background-color: white;
+	background-color: grey;
 }
 
 .input {
 	border-width: 1px;
-	border-color: #cbd5e0;
+	border-color: lightgreen;
 	border-radius: 0.25rem;
 	height: 2.5rem;
 	width: 100%;
@@ -156,9 +156,9 @@ input:disabled {
 	padding-bottom: 0.5rem;
 	padding-left: 0.75rem;
 	padding-right: 0.75rem;
-	background-color: white;
-	border-width: 1px;
-	border-color: #cbd5e0;
+	background-color: teal;
+	border-width: 3px;
+	border-color: yellow;
 	margin-right: -0.5rem;
 	height: 2.5rem;
 }
@@ -172,7 +172,7 @@ input:disabled {
 }
 
 .bttn:hover {
-	background-color: #edf2f7;
+	background-color: greenyellow;
 }
 
 .left {
@@ -189,15 +189,15 @@ input:disabled {
 .bttn.active {
 	background-color: #606FC7;
 	color: white;
-	border-width: 1px;
-	border-color: #606FC7;
+	border-width: 3px;
+	border-color: green;
 }
 
 .bttn__primary {
 	background-color: #606FC7;
 	color: white;
-	border-width: 1px;
-	border-color: #606FC7;
+	border-width: 3px;
+	border-color: green;
 	border-radius: 0.25rem;
 	font-size: 1.125rem;
 	padding-left: 1.25rem;
@@ -207,7 +207,7 @@ input:disabled {
 }
 
 .bttn.active:hover, .bttn__primary:hover {
-	background-color: #4c51bf;
+	background-color: green;
 }
 
 .codeblock {
@@ -277,3 +277,4 @@ input:disabled {
 #resultContainer {
 	display: none;
 }
+
