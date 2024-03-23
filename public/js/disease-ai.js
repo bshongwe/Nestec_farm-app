@@ -1,34 +1,13 @@
-// Leaf Disease Segmentation Detection API
-/* How to Deploy the Leaf Disease Segmentation Detection API
- * Using Roboflow, you can deploy your object detection model to a range of environments, including:
- *  Luxonis OAK
- *  Raspberry Pi
- *  NVIDIA Jetson
- *  A Docker container
- *  A web page
- *  A Python script using the Roboflow SDK.
- */
-
-// Model Type: Roboflow 2.0 Semantic Segmentation
 $(function() {
-	// #1.0 Default values pulled from query string
-	// #1.1 Default model, version, API key
-	$('#model').val("leaf-disease-segmentation-yguau");
-	$('#version').val("1");
-	$('#api_key').val("Ri67gCGCmzmgZkdo3PH2");
-
-	// #1.2 Button event listeners
+	retrieveDefaultValuesFromLocalStorage();
 	setupButtonListeners();
 });
 
-// #2.0 Inference handler: URL
-// #2.1 Inference: progress + result + scroll
 var infer = function() {
 	$('#output').html("Inferring...");
 	$("#resultContainer").show();
 	$('html').scrollTop(100000);
 
-	// #2.2 GET: form settings, error-handler
 	getSettingsFromForm(function(settings) {
 		settings.error = function(xhr) {
 			$('#output').html("").append([
@@ -40,27 +19,38 @@ var infer = function() {
 			].join("\n"));
 		};
 
-		// #2.3 REQ: API request send
 		$.ajax(settings).then(function(response) {
-			var pretty = $('<pre>');
-			var formatted = JSON.stringify(response, null, 4)
+			if(settings.format == "json") {
+				var pretty = $('<pre>');
+				var formatted = JSON.stringify(response, null, 4)
 
-			// #2.4 RES: JSON + res + scroll
-			pretty.html(formatted);
-			$('#output').html("").append(pretty);
-			$('html').scrollTop(100000);
+				pretty.html(formatted);
+				$('#output').html("").append(pretty);
+				$('html').scrollTop(100000);
+			} else {
+				var arrayBufferView = new Uint8Array(response);
+				var blob = new Blob([arrayBufferView], {
+					'type': 'image\/jpeg'
+				});
+				var base64image = window.URL.createObjectURL(blob);
+
+				var img = $('<img/>');
+				img.get(0).onload = function() {
+					$('html').scrollTop(100000);
+				};
+				img.attr('src', base64image);
+				$('#output').html("").append(img);
+			}
 		});
 	});
 };
 
-// #3.0 Inference handler: Local DB
 var retrieveDefaultValuesFromLocalStorage = function() {
 	try {
 		var api_key = localStorage.getItem("rf.api_key");
 		var model = localStorage.getItem("rf.model");
 		var format = localStorage.getItem("rf.format");
 
-		// #3.1 API Set: key + model + format
 		if (api_key) $('#api_key').val(api_key);
 		if (model) $('#model').val(model);
 		if (format) $('#format').val(format);
@@ -68,7 +58,6 @@ var retrieveDefaultValuesFromLocalStorage = function() {
 		// localStorage disabled
 	}
 
-	// #3.2 Update local storage when form values change
 	$('#model').change(function() {
 		localStorage.setItem('rf.model', $(this).val());
 	});
@@ -82,16 +71,15 @@ var retrieveDefaultValuesFromLocalStorage = function() {
 	});
 };
 
-// #4.0 Setup event listeners for buttons
 var setupButtonListeners = function() {
-	// #4.1 run inference when the form is submitted
+	// run inference when the form is submitted
 	$('#inputForm').submit(function() {
 		infer();
 		return false;
 	});
 
-	// #4.2 make the buttons blue when clicked
-	// and show the proper "Select file" or "Enter url" state: I changed something about this
+	// make the buttons blue when clicked
+	// and show the proper "Select file" or "Enter url" state
 	$('.bttn').click(function() {
 		$(this).parent().find('.bttn').removeClass('active');
 		$(this).addClass('active');
@@ -133,12 +121,39 @@ var getSettingsFromForm = function(cb) {
 	};
 
 	var parts = [
-		"https://segment.roboflow.com/",
+		"https://detect.roboflow.com/",
 		$('#model').val(),
 		"/",
 		$('#version').val(),
 		"?api_key=" + $('#api_key').val()
 	];
+
+	var classes = $('#classes').val();
+	if(classes) parts.push("&classes=" + classes);
+
+	var confidence = $('#confidence').val();
+	if(confidence) parts.push("&confidence=" + confidence);
+
+	var overlap = $('#overlap').val();
+	if(overlap) parts.push("&overlap=" + overlap);
+
+	var format = $('#format .active').attr('data-value');
+	parts.push("&format=" + format);
+	settings.format = format;
+
+	if(format == "image") {
+		var labels = $('#labels .active').attr('data-value');
+		if(labels) parts.push("&labels=on");
+
+		var stroke = $('#stroke .active').attr('data-value');
+		if(stroke) parts.push("&stroke=" + stroke);
+
+		settings.xhr = function() {
+			var override = new XMLHttpRequest();
+			override.responseType = 'arraybuffer';
+			return override;
+		}
+	}
 
 	var method = $('#method .active').attr('data-value');
 	if(method == "upload") {
@@ -165,18 +180,16 @@ var getSettingsFromForm = function(cb) {
 };
 
 var getBase64fromFile = function(file) {
-	return new Promise(function(resolve, reject) {
-		var reader = new FileReader();
-		reader.readAsDataURL(file);
-		reader.onload = function() {
-		resizeImage(reader.result).then(function(resizedImage){
-			resolve(resizedImage);
-		});
-    };
-		reader.onerror = function(error) {
-			reject(error);
-		};
-	});
+    return new Promise(function(resolve, reject) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function() {
+            resolve(reader.result);
+        };
+        reader.onerror = function(error) {
+            reject(error);
+        };
+    });
 };
 
 var resizeImage = function(base64Str) {
@@ -206,5 +219,6 @@ var resizeImage = function(base64Str) {
 			ctx.drawImage(img, 0, 0, width, height);
 			resolve(canvas.toDataURL('image/jpeg', 1.0));  
 		};
-	});
+    
+	});	
 };

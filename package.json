@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/bshongwe/Nestec_farm-app/issues"
   },
-  "homepage": "https://github.com/bshongwe/Nestec_farm-app#readme"
+  "homepage": "https://github.com/bshongwe/Nestec_farm-app#readme",
+  "dependencies": {
+    "axios": "^1.6.8"
+  }
 }

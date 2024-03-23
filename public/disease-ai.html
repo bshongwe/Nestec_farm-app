@@ -12,183 +12,232 @@
     <!-- Web Browser Tab Icon -->
     <link rel="icon" type="image/png" href="img/logo.png">
 
-    <!-- Custom fonts for this template-->
-    <!--<link href="vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">-->
+    <!-- Custom styling for this template-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.6/tailwind.min.css" rel="stylesheet" type="text/css">
     <link href="css/nestec.css" rel="stylesheet">
     <link href="css/roboflow-ai.css" rel="stylesheet">
 
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 
 
 <!-- Body -->
 <body id="page-top">
 
-   <!-- Loader: whilst page is loading -->
-   <div id= "loading">
-      <div style="margin: 0 auto;" >
-          <div class="loader"></div>
-      </div>
-   </div>
+	<!-- Loader: whilst page is loading -->
+	<div id= "loading">
+		<div style="margin: 0 auto;" >
+			<div class="loader"></div>
+		</div>
+	</div>
 
-   <div id="body-content" style="display: none;">
-    <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
-       &nbsp;&nbsp; 
-       
-       <a class="navbar-brand mr-1" href="../index.html"><img width="70px" height="auto" class="img-fluid" alt="" src="img/logo.png"></a>
-       <h2 style="color: green;">SMART DETECTION</h2>
-        <p><label class="input__label">(by ROBOFLOW Host API)</label></p>
-       <!-- Navbar Search -->
+	<div id="body-content" style="display: none;">
+		<nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
+			&nbsp;&nbsp; 
 
-       <div id="content-wrapper">
-         <div class="container-fluid pb-0">  
-            <hr>
-            <button><a class="btn btn-outline-primary" href="features.html"><i class="mdi mdi-home"></i> NAVIGATE TO FEATURES PAGE</a></button>
-         </div>
+			<a class="navbar-brand mr-1" href="../index.html"><img width="70px" height="auto" class="img-fluid" alt="" src="img/logo.png"></a>
+			<h2 style="color: green;">SMART DETECTION</h2>
+			<p><label class="input__label">(by ROBOFLOW Host API)</label></p>
+			<!-- Navbar Search -->
 
-            <!-- API Widget -->
-         <form id="inputForm">
-		    <div class="header">
-		        <div class="header__grid">
-			        <div>
-			            <label class="header__label" for="model">Model</label>
-				        <input class="input" type="text" id="model" />
-			        </div>
-			        <div>
-				        <label class="header__label" for="version">Version</label>
-				        <input class="input" type="number" id="version" />
-			        </div>
-			        <div>
-				        <label class="header__label" for="api_key">API Key</label>
-				        <input class="input" type="text" id="api_key" />
-			        </div>
-		        </div>
-		     </div>
-
-		     <div class="content">
-		        <div class="content__grid">
-			        <div class="col-12-s6-m4" id="method">
-				        <label class="input__label">Upload Method</label>
-				    <div>
-					    <button data-value="upload" id="computerButton" class="bttn left fill active">Upload</button>
-					    <button data-value="url" id="urlButton" class="bttn right fill">URL</button>
-				    </div>
-			    </div>
-
-			    <div class="col-12-m8" id="fileSelectionContainer">
-				    <label class="input__label" for="file">Select File</label>
-				    <div class="flex">
-					    <input class="input input--left flex-1" type="text" id="fileName" disabled />
-					    <button id="fileMock" class="bttn right active">Browse</button>
-				    </div>
-				    <input style="display: none;" type="file" id="file" />
-			    </div>
-
-			    <div class="col-12-m8" id="urlContainer">
-				    <label class="input__label" for="file">Enter Image URL</label>
-				    <div class="flex">
-					    <input type="text" id="url" placeholder="https://path.to/your.jpg" class="input"/><br>
-				    </div>
-			    </div>
-			    <div class="col-6-m3" id="format">
-				    <label class="input__label">Inference Result</label>
-				    <div>
-					    <button id="jsonButton" data-value="json" class="bttn right fill active">JSON</button>
-				    </div>
-			    </div>
-				<div class="col-12">
-				    <button type="submit" value="Run Inference" class="bttn__primary">Run Inference</button>
-			    </div>
-		    </div>
-		    <div class="result" id="resultContainer">
-			    <div class="divider"></div>
-			    <div class="result__header">
-				    <h3 class="headline">Result</h3>
-				    <a href="#">Copy Code</a>
-			    </div>
-			    <pre id="output" class="codeblock"/> here is your json </pre>
-		    </div>
-               <button><a class="btn btn-outline-primary" href="../index.html"><i class="mdi mdi-home"></i> NAVIGATE TO HOME PAGE</a></button>
-	      </div>
-         </form>
-       </div>  
-
-          <!-- /.container-fluid -->
-          <!-- Sticky Footer -->
-          <footer class="sticky-footer">
-            <div class="container">
-               <div class="row no-gutters">
-                  <div class="col-lg-6 col-sm-6">
-                     <p class="mt-1 mb-0"><strong class="text-dark">Nestec Pty (Ltd)</strong>.</p>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 text-right">
-                     <div class="app">
-                        <a href="#"><img alt="" src="public/img/logo.png"></a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </footer>
-       </div>
-    </div>
-
-       <!-- /.content-wrapper -->
-   </div>
-
-    <!-- /#wrapper -->
-    <!-- Auto Scroll to Top Button -->
-    <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-       <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-          <div class="modal-content">
-             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
-                </button>
-             </div>
-             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" onclick="logout('index.html');">Logout</a>
-             </div>
-          </div>
-       </div>
-    </div>
+			<div id="content-wrapper">
+				<div class="container-fluid pb-0">  
+					<hr>
+					<button><a class="btn btn-outline-primary" href="features.html"><i class="mdi mdi-home"></i> NAVIGATE TO FEATURES PAGE</a></button>
+				</div>
 
 
-    <!-- JS control scripts -->
-    <!-- Core Firebase JS SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+				<!-- ********** API Widget ********** -->
+				<form id="inputForm">
+					<div class="header">
+						<div class="header__grid">
+							<img class="header__logo" src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/6143750f1177056d60fc52d9_roboflow_logomark_inference.png" alt="Roboflow Inference">
+							<div>
+								<label class="header__label" for="model">Model</label>
+								<input class="input" type="text" id="model" />
+							</div>
+							<div>
+								<label class="header__label" for="version">Version</label>
+								<input class="input" type="number" id="version" />
+							</div>
+							<div>
+								<label class="header__label" for="api_key">API Key</label>
+								<input class="input" type="text" id="api_key" />
+							</div>
+						</div>
+					</div>
 
-    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js"></script>
+					<div class="content">
+						<div class="content__grid">
+							<div class="col-12-s6-m4" id="method">
+								<label class="input__label">Upload Method</label>
+								<div>
+									<button data-value="upload" id="computerButton" class="bttn left fill active">Upload</button>
+									<button data-value="url" id="urlButton" class="bttn right fill">URL</button>
+								</div>
+							</div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="public/vendor/jquery/jquery.min.js"></script>
-    <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+							<div class="col-12-m8" id="fileSelectionContainer">
+								<label class="input__label" for="file">Select File</label>
+								<div class="flex">
+									<input class="input input--left flex-1" type="text" id="fileName" disabled />
+									<button id="fileMock" class="bttn right active">Browse</button>
+								</div>
+								<input style="display: none;" type="file" id="file" />
+							</div>
 
-    <!-- Core plugin JavaScript-->
-    <script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
+							<div class="col-12-m8" id="urlContainer">
+								<label class="input__label" for="file">Enter Image URL</label>
+								<div class="flex">
+									<input type="text" id="url" placeholder="https://path.to/your.jpg" class="input"/><br>
+								</div>
+							</div>
 
-    <!-- Owl Carousel -->
-    <script src="public/vendor/owl-carousel/owl.carousel.js"></script>
+							<div class="col-12-m6">
+								<label class="input__label" for="classes">Filter Classes</label>
+								<input type="text" id="classes" placeholder="Enter class names" class="input"/><br>
+								<span class="text--small">Separate names with commas</span>
+							</div>
+
+							<div class="col-6-m3 relative">
+								<label class="input__label" for="confidence">Min Confidence</label>
+								<div>
+									<i class="fas fa-crown"></i>
+									<span class="icon">%</span>
+									<input type="number" id="confidence" value="50" max="100" accuracy="2" min="0" class="input input__icon"/></div>
+							</div>
+							<div class="col-6-m3 relative">
+								<label class="input__label" for="overlap">Max Overlap</label>
+								<div>
+									<i class="fas fa-object-ungroup"></i>
+									<span class="icon">%</span>
+									<input type="number" id="overlap" value="50" max="100" accuracy="2" min="0" class="input input__icon"/></div>
+							</div>
+							<div class="col-6-m3" id="format">
+								<label class="input__label">Inference Result</label>
+								<div>
+									<button id="imageButton" data-value="image" class="bttn left fill active">Image</button>
+									<button id="jsonButton" data-value="json" class="bttn right fill">JSON</button>
+								</div>
+							</div>
+							<div class="col-12 content__grid" id="imageOptions">
+								<div class="col-12-s6-m4" id="labels">
+									<label class="input__label">Labels</label>
+									<div>
+										<button class="bttn left active">Off</button>
+										<button data-value="on" class="bttn right">On</button>
+									</div>
+								</div>
+								<div class="col-12-s6-m4" id="stroke">
+									<label class="input__label">Stroke Width</label>
+									<div>
+										<button data-value="1" class="bttn left active">1px</button>
+										<button data-value="2" class="bttn">2px</button>
+										<button data-value="5" class="bttn">5px</button>
+										<button data-value="10" class="bttn right">10px</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<button type="submit" value="Run Inference" class="bttn__primary">Run Inference</button>
+							</div>
+						</div>
+						<div class="result" id="resultContainer">
+							<div class="divider"></div>
+							<div class="result__header">
+								<h3 class="headline">Result</h3>
+								<a href="#">Copy Code</a>
+							</div>
+							<pre id="output" class="codeblock"/> here is your json </pre>
+						</div>
+					</div>
+				</form>
+
+				<!-- ******* end of API Widget******* -->
+			</div>  
+
+			<!-- /.container-fluid -->
+			<!-- Sticky Footer -->
+			<footer class="sticky-footer">
+				<div class="container">
+					<div class="row no-gutters">
+						<div class="col-lg-6 col-sm-6">
+							<p class="mt-1 mb-0"><strong class="text-dark">Nestec Pty (Ltd)</strong>.</p>
+						</div>
+						<div class="col-lg-6 col-sm-6 text-right">
+							<div class="app">
+								<a href="#"><img alt="" src="public/img/logo.png"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+	</div>
+	</div>
+
+	<!-- /.content-wrapper -->
+	</div>
+
+	<!-- /#wrapper -->
+	<!-- Auto Scroll to Top Button -->
+	<a class="scroll-to-top rounded" href="#page-top">
+		<i class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" onclick="logout('index.html');">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-    <!-- Custom script for all pages-->
-    <script src="public/js/custom.js"></script>
+	<!-- JS control scripts -->
+	<!-- Core Firebase JS SDK -->
+	<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
 
-    <!-- Index script (checks user auth) -->
-    <script src="public/js/index.js"></script>
-    <!--<script src="public/js/logout.js"></script>-->
-    <script src="public/js/loader.js" async defer></script>
-    </div>
+	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js"></script>
 
- </body>
+	<!-- Roboflow SDK Requirements -->
+	<script src=”https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src=”https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src=”https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+	<script src=”https://cdnjs.cloudflare.com/ajax/libs/async/3.2.0/async.min.js"></script>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="public/vendor/jquery/jquery.min.js"></script>
+	<script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Owl Carousel -->
+	<script src="public/vendor/owl-carousel/owl.carousel.js"></script>
+
+
+	<!-- Custom script for all pages-->
+	<script src="public/js/custom.js"></script>
+
+	<!-- Index script (checks user auth) -->
+	<script src="public/js/index.js"></script>
+	<!--<script src="public/js/logout.js"></script>-->
+	<script src="public/js/loader.js" async defer></script>
+	</div>
+
+</body>
 </html>
