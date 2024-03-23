@@ -36,11 +36,11 @@ span.icon {
 	right: 0;
 }
 
-/*.header {
+.header {
 	background-color: black;
 	padding: 1rem;
 	padding-bottom: 2.5rem;
-}*/
+}
 
 .header__grid {
 	display: grid;
