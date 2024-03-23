@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no">
+
+    <title>NESTEC</title>
+
+    <!-- Browser Tab Icon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/osahan.css" rel="stylesheet">
+
+    <!-- Carousel -->
+    <link rel="stylesheet" href="vendor/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="vendor/owl-carousel/owl.theme.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@900&display=swap" rel="stylesheet">
+
+</head>
+
+<!-- Body -->
+<body id="page-top">
+
+   <!-- Page Loader -->
+   <div id= "loading">
+      <div style="margin: 0 auto;" >
+          <div class="loader"></div>
+      </div>
+   </div>
+
+<!-- Main Body -->
+<div style="display: none;" id="body-content">
+    <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
+       &nbsp;&nbsp; 
+
+       <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
+       <i class="fas fa-2x fa-fw fa-bars"></i>
+       </button> &nbsp;&nbsp;
+
+       <a class="navbar-brand mr-1" href="../index.html"><img width="70px" height="auto" class="img-fluid" alt="" src="img/logo.png"></a>
+
+       <!-- Navbar Search -->
+       <!-- Navbar -->
+       <ul class="navbar-nav ml-auto ml-md-0 osahan-right-navbar" style="justify-content: flex-end; width: 90%; display: flex;">
+
+	 <!-- Home -->
+         <li class="nav-item mx-1">
+            <a class="nav-link" href="../index.html">
+              <i class="fas fa-2x fa-fw fa-home"></i>
+               Home
+            </a>
+         </li>
+
+	  <!-- About -->
+          <li class="nav-item mx-1">
+             <a class="nav-link" href="about.html">
+               <i class="fas fa-2x fa-fw fa-info-circle"></i>
+                About
+             </a>
+          </li>
+
+	  <!-- App Features -->
+          <li class="nav-item dropdown no-arrow mx-1">
+             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fas fa-2x fa-fw fa-tools"></i>
+               App Features
+             </a>
+             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+               <a class="dropdown-item" href="weather.html"><i class="fas fa-cloud-showers-heavy"></i> &nbsp; Weather</a>
+               <a class="dropdown-item" href="features.html"><i class="fas fa-search"></i>&nbsp; Smart Detection</a>
+               <a class="dropdown-item" href="inventory.html"><i class="fas fa-list-ol"></i> &nbsp; Inventory Management</a>
+               <a class="dropdown-item" href="news.html"><i class="far fa-newspaper"></i>&nbsp;News</a>
+               <a class="dropdown-item" href="seeds.html"><i class="fas fa-seedling"></i>&nbsp; Seed Database</a>
+             </div>
+          </li>
+
+	  <!-- User -->
+          <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
+             <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fas fa-2x fa-fw fa-user-circle" id="avatar"></i>
+               <img src="" alt="" id="user_photo" hidden="true">
+               <span id="user_profile">User</span>
+             </a>
+             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="account.html"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
+                <a class="dropdown-item" href="login.html">Login</a>
+                <a class="dropdown-item" href="register.html">Register</a>
+                <a class="dropdown-item" href="login.html">Forgot Password</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Logout</a>
+             </div>
+          </li>
+       </ul>
+    </nav>
+
+    <!-- Navigation -->
+    <div id="wrapper">
+
+       <!-- Sidebar -->
+       <!-- Home -->
+       <ul class="sidebar navbar-nav">
+          <li class="nav-item active">
+             <a class="nav-link" href="../index.html">
+             <i class="fas fa-fw fa-home"></i>
+             <span>Home</span>
+             </a>
+          </li>
+
+	  <!-- About -->
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">
+            <i class="fas fa-fw fa-info-circle"></i>
+            <span>About</span>
+            </a>
+         </li>
+          
+	 <!-- Profile -->
+          <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fas fa-fw fa-user"></i>
+             <span>Profile</span>
+             </a>
+             <div class="dropdown-menu">
+                <h6 class="dropdown-header">Account Settings:</h6>
+                <a class="dropdown-item" href="login.html">Login</a>
+                <a class="dropdown-item" href="register.html">Register</a>
+                <a class="dropdown-item" href="login.html">Forgot Password</a>
+                <div class="dropdown-divider"></div>
+             </div>
+          </li>
+
+	  <!-- App Features -->
+          <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="features.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fas fa-fw fa-tools"></i>
+             <span>App Features</span>
+             </a>
+             <div class="dropdown-menu">
+               <a class="dropdown-item" href="weather.html"><i class="fas fa-cloud-showers-heavy"></i> &nbsp; Weather</a>
+               <a class="dropdown-item" href="features.html"><i class="fas fa-search"></i>&nbsp; Smart Detection</a>
+               <a class="dropdown-item" href="inventory.html"><i class="fas fa-list-ol"></i> &nbsp; Inventory Management</a>
+               <a class="dropdown-item" href="news.html"><i class="far fa-newspaper"></i>&nbsp;News</a>
+               <a class="dropdown-item" href="seeds.html"><i class="fas fa-seedling"></i>&nbsp; Seed Database</a>
+             </div>
+          </li>
+          <div class="dropdown-divider"></div>
+       </ul>
+       <div id="content-wrapper">
+         <div class="container-fluid pb-0">        
+            <div class="row">
+               <div class="col-sm-7 col-lg-7 col-md-7" style="padding-top: 10em;">
+                  <h1 style="color: green; font-weight: bolder;">Contact NESTEC Today</h1>
+                  <br>
+                  <p style="color: black; "><strong>Nestec</strong> is an agriculture app whose aim is to improve agricultural practices faced by South African farmers through its cutting edge tech stack. The app</br>
+                  employs agriculture news content APIs and weather forecast APIs, helps the user manage their farm using cutting edge pest and disease detection AI technology.</p>
+                  <br>
+		              <p style="color: green; font-weight: bolder;">To <i><u><a href="about.html">learn more</a></u></i> on how Nestec can be a game-changer in the agriculture industry, queries or other related matters, kindly use the following contact details for appropriate correspondence:<br></p>
+                  <p>
+                      Cell: <a href="phone: 0655981851">+27655981851</a><br>
+                      Email: <a href ="email: shongwe.bhekizwe@yahoo.com">shongwe.bhekizwe@yahoo.com</a><br>
+                  </p>
+               </div>
+               <div class="col-sm-5 col-lg-5 col-md-5">
+		              <img src="img/notebook.gif" alt="contact_us" style="width: 50%" height="auto">
+               </div>
+
+            </div>
+         </div>
+
+          <!-- /.container-fluid -->
+          <!-- Sticky Footer -->
+          <footer class="sticky-footer">
+            <div class="container">
+               <div class="row no-gutters">
+                  <div class="col-lg-6 col-sm-6">
+                     <p class="mt-1 mb-0"><strong class="text-dark">Nestec Pty (Ltd)</strong>.</p>
+                  </div>
+                  <div class="col-lg-6 col-sm-6 text-right">
+                     <div class="app">
+                        <a href="#"><img alt="" src="img/logo.png"></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </footer>
+       </div>
+[O
+       <!-- /.content-wrapper -->
+    </div>
+
+    <!-- /#wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+          <div class="modal-content">
+             <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+             </div>
+             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+             <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" onclick="logout('../index.html');">Logout</a>
+             </div>
+          </div>
+       </div>
+    </div>
+
+   <!-- JS Control Scripts -->
+   <!-- Core Firebase JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js"></script>
+
+    <!-- Bootstrap core JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core jQuery-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Carousel -->
+    <script src="vendor/owl-carousel/owl.carousel.js"></script>
+
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/custom.js"></script>
+
+    <!-- Index scripts (checks user auth) -->
+    <script src="js/index.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/loader.js" async defer></script>
+    </div>
+
+ </body>
+</html>
