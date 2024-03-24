@@ -4,13 +4,19 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// #1. Serve index.html from <root>
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+// #1. Serve index.html from <root>, </public>, </public/ai-models>
+app.use(express.static(path.join(__dirname, '/')));
+app.use(express.static(path.join(__dirname, 'public', 'ai-models')));
+
+// #2. Define routes for specfic HTML files
+app.get('index.html', (req, res) => {
+  res.sendFile(path.join(__dirname, '/', 'index.html'));
 });
 
-// #2. Serve static files from </'public'>
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve index.html as </root>
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/', 'index.html'));
+});
 
 // Start the server
 app.listen(PORT, () => {
