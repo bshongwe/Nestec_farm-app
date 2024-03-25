@@ -1,9 +1,10 @@
 // #MONGOdb: Connect to Cluster
+const dotenv = require('dotenv');
 const { MongoClient } = require('mongodb');
 
-const uri = 'mongodb://localhost:27017'; // MongoDB URI
-const dbName = 'yourDatabaseName'; // Change to your database name
-const collectionName = 'clients'; // Change to your collection name
+const uri = `mongodb://${process.env.MONGO_HOST || 'localhost'}:${process.env.MONGO_PORT || 27017}/`; // MongoDB URI
+const dbName = process.env.MONGO_DB_NAME || 'DatabaseName'; // Default cluster db name
+const collectionName = process.env.MONGO_COLLECTION_NAME || 'clients'; // Default cluster collection name
 
 const db = {
   // Load data from MongoDB

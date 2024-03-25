@@ -1,7 +1,21 @@
 // # REDIS: Connect to Cluster
 // # CAUTION: Redis server is connected to AWS Stack
+const dotenv = require('dotenv');
 const redis = require('redis');
-const client = redis.createClient();
+
+dotenv.config(); // Load variables from .env file
+
+// Extract Redis configuration from environment variables or use default values
+const redisHost = process.env.REDIS_HOST || 'localhost';
+const redisPort = process.env.REDIS_PORT || 6379;
+const redisPassword = process.env.REDIS_PASSWORD; // Redis password
+
+// Create Redis client with authentication
+const client = redis.createClient({
+  host: redisHost,
+  port: redisPort,
+  password: redisPassword,
+});
 
 client.on('error', (err) => {
   console.error('Redis error:', err);
