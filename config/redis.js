@@ -58,8 +58,37 @@ const db = {
 
   // Update item in Redis
   updateItem: function (updatingClient) {
-    // Not implemented for this example
-    // You can update data in Redis based on your application's requirements
+    // Return a Promise to mimic async behavior
+    return new Promise((resolve, reject) => {
+      // Load all clients from Redis
+      client.lrange('clients', 0, -1, (err, data) => {
+        if (err) {
+          reject(err);
+        } else {
+          // Parse JSON data from Redis
+          const clients = data.map(JSON.parse);
+          // Find the index of the client to update
+          const index = clients.findIndex(client => client._id === updatingClient._id);
+          if (index !== -1) {
+            // Update the client data
+            clients[index] = updatingClient;
+            // Overwrite the entire list in Redis
+            client.del('clients', (err) => {
+              if (err) {
+                reject(err);
+              } else {
+                clients.forEach(client => {
+                  client.rpush('clients', JSON.stringify(client));
+                });
+                resolve();
+              }
+            });
+          } else {
+            reject(new Error('Client not found'));
+          }
+        }
+      });
+    });
   },
 
   // Delete item from Redis

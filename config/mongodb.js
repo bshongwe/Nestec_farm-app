@@ -2,9 +2,10 @@
 const dotenv = require('dotenv');
 const { MongoClient } = require('mongodb');
 
-const uri = `mongodb://${process.env.MONGO_HOST || 'localhost'}:${process.env.MONGO_PORT || 27017}/`; // MongoDB URI
-const dbName = process.env.MONGO_DB_NAME || 'DatabaseName'; // Default cluster db name
-const collectionName = process.env.MONGO_COLLECTION_NAME || 'clients'; // Default cluster collection name
+dotenv.config(); // Load variables from .env file
+
+// Extract MongoDB URI from environment variables
+const uri = process.env.MONGODB_URI;
 
 const db = {
   // Load data from MongoDB
@@ -12,8 +13,8 @@ const db = {
     // Connect to MongoDB
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     await client.connect();
-    const database = client.db(dbName);
-    const collection = database.collection(collectionName);
+    const database = client.db();
+    const collection = database.collection('clients');
     
     // Construct query based on filter
     const query = {};
@@ -35,8 +36,8 @@ const db = {
   insertItem: async function (insertingClient) {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     await client.connect();
-    const database = client.db(dbName);
-    const collection = database.collection(collectionName);
+    const database = client.db();
+    const collection = database.collection('clients');
     await collection.insertOne(insertingClient);
     await client.close();
   },
@@ -45,8 +46,8 @@ const db = {
   updateItem: async function (updatingClient) {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     await client.connect();
-    const database = client.db(dbName);
-    const collection = database.collection(collectionName);
+    const database = client.db();
+    const collection = database.collection('clients');
     await collection.updateOne({ _id: updatingClient._id }, { $set: updatingClient });
     await client.close();
   },
@@ -55,8 +56,8 @@ const db = {
   deleteItem: async function (deletingClient) {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     await client.connect();
-    const database = client.db(dbName);
-    const collection = database.collection(collectionName);
+    const database = client.db();
+    const collection = database.collection('clients');
     await collection.deleteOne({ _id: deletingClient._id });
     await client.close();
   }

@@ -43,14 +43,14 @@ app.get('/weather', (req, res) => {
 });
 
 // #1.2.3 LOGIN: login.html
-// app.get('/login', (req, res) => {
-//  res.sendFile(path.join(__dirname, 'public', 'login.html'));
-// });
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
 
 // #1.2.4 REGISTER: login.html
-// app.get('/register', (req, res) => {
-//  res.sendFile(path.join(__dirname, 'public', 'register.html'));
-// });
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'register.html'));
+});
 
 // # APP SERVER FRAMEWORK
 // Serve index.html as </root>
@@ -70,6 +70,19 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Nestec server is online, running on port ${PORT}`);
-});
+const startServer = async () => {
+  try {
+    // await redisClient.connect(); // Connect to Redis
+    // console.log('Connected to Redis cluster');
+    // await mongoClient.connect(); // Connect to MongoDB
+    // console.log('Connected to MongoDB cluster');
+    app.listen(PORT, () => {
+      console.log(`Nestec server is online, running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error('Error connecting to databases:', error);
+    process.exit(1); // Exit with failure
+  }
+};
+
+startServer();
