@@ -1,11 +1,14 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'production',
+  devtool: 'source-map', // Added devtool for source mapping
   entry: './public/js/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public/dist'),
+    publicPath: '/dist/' // Added publicPath for serving assets from the correct path
   },
   module: {
     rules: [
@@ -29,4 +32,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.ProgressPlugin(), // Added webpack.ProgressPlugin for build progress information
+  ],
 };
