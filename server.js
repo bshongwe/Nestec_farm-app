@@ -43,14 +43,14 @@ app.get('/weather', (req, res) => {
 });
 
 // #1.2.3 LOGIN: login.html
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
-});
+// app.get('/login', (req, res) => {
+//  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+// });
 
 // #1.2.4 REGISTER: login.html
-app.get('/register', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'register.html'));
-});
+// app.get('/register', (req, res) => {
+//  res.sendFile(path.join(__dirname, 'public', 'register.html'));
+// });
 
 // # APP SERVER FRAMEWORK
 // Serve index.html as </root>
