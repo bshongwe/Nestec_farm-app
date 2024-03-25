@@ -6,9 +6,10 @@ const PORT = process.env.PORT || 3000;
 
 // #1. APP ROUTE SETUP
 // #1.1 Serve index.html from <root>, </public>, </public/ai-models>
-app.use(express.static(path.join(__dirname, '/')));
+// app.use(express.static(path.join(__dirname, '/')));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public', 'ai-models')));
+app.use('/ai-models', express.static(path.join(__dirname, 'public', 'ai-models')));
+// app.use(express.static(path.join(__dirname, 'public', 'ai-models')));
 
 // #1.2 Define routes for specfic HTML files
 // #1.2.1 HOME: index.html
@@ -60,5 +61,5 @@ app.use((err, req, res, next) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Nestec server is online, running on port ${PORT}`);
 });
