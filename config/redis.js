@@ -11,13 +11,13 @@ const redisPort = process.env.REDIS_PORT || 6379;
 const redisPassword = process.env.REDIS_PASSWORD; // Redis password
 
 // Create Redis client with authentication
-const client = redis.createClient({
+const redisClient = redis.createClient({
   host: redisHost,
   port: redisPort,
   password: redisPassword,
 });
 
-client.on('error', (err) => {
+redisClient.on('error', (err) => {
   console.error('Redis error:', err);
 });
 
@@ -26,7 +26,7 @@ const db = {
   loadData: function (filter) {
     // Return a Promise to mimic async behavior
     return new Promise((resolve, reject) => {
-      client.lrange('clients', 0, -1, (err, data) => {
+      redisClient.lrange('clients', 0, -1, (err, data) => {
         if (err) {
           reject(err);
         } else {
@@ -35,11 +35,11 @@ const db = {
           // Apply filtering if provided
           if (filter) {
             const filteredClients = clients.filter(client => {
-              return (!filter.Name || client.Name.includes(filter.Name)) &&
-                (filter.Age === undefined || client.Age === filter.Age) &&
-                (!filter.Address || client.Address.includes(filter.Address)) &&
-                (!filter.Country || client.Country === filter.Country) &&
-                (filter.Married === undefined || client.Married === filter.Married);
+              return (!filter.Name || redisClient.Name.includes(filter.Name)) &&
+                (filter.Age === undefined || redisClient.Age === filter.Age) &&
+                (!filter.Address || redisClient.Address.includes(filter.Address)) &&
+                (!filter.Country || redisClient.Country === filter.Country) &&
+                (filter.Married === undefined || redisClient.Married === filter.Married);
             });
             resolve(filteredClients);
           } else {
@@ -53,7 +53,7 @@ const db = {
   // Insert item into Redis
   insertItem: function (insertingClient) {
     // Add new client to the list
-    client.rpush('clients', JSON.stringify(insertingClient));
+    redisClient.rpush('clients', JSON.stringify(insertingClient));
   },
 
   // Update item in Redis
@@ -61,24 +61,24 @@ const db = {
     // Return a Promise to mimic async behavior
     return new Promise((resolve, reject) => {
       // Load all clients from Redis
-      client.lrange('clients', 0, -1, (err, data) => {
+      redisClient.lrange('clients', 0, -1, (err, data) => {
         if (err) {
           reject(err);
         } else {
           // Parse JSON data from Redis
           const clients = data.map(JSON.parse);
           // Find the index of the client to update
-          const index = clients.findIndex(client => client._id === updatingClient._id);
+          const index = clients.findIndex(redisClient => redisClient._id === updatingClient._id);
           if (index !== -1) {
             // Update the client data
             clients[index] = updatingClient;
             // Overwrite the entire list in Redis
-            client.del('clients', (err) => {
+            redisClient.del('clients', (err) => {
               if (err) {
                 reject(err);
               } else {
                 clients.forEach(client => {
-                  client.rpush('clients', JSON.stringify(client));
+                  redisClient.rpush('clients', JSON.stringify(redisClient));
                 });
                 resolve();
               }
@@ -94,7 +94,7 @@ const db = {
   // Delete item from Redis
   deleteItem: function (deletingClient) {
     // Remove client from the list
-    client.lrem('clients', 0, JSON.stringify(deletingClient));
+    redisClient.lrem('clients', 0, JSON.stringify(deletingClient));
   }
 };
 

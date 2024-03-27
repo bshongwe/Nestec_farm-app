@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no">
 
-    <title>NESTEC</title>
+    <title>NESTEC | weather</title>
 
     <!-- Web Browser Tab Icon -->
     <link rel="icon" type="image/png" href="img/logo.png">
@@ -29,11 +29,13 @@
 
 <body id="page-top">
 
+   <!-- ******* Page Loader ******* -->
    <div id= "loading">
       <div style="margin: 0 auto;" >
           <div class="loader"></div>
       </div>
    </div>
+   <!-- ******* Page Loader ******* -->
 
    <div id="body-content" style="display: none;">
     <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
@@ -139,7 +141,7 @@
             <div class="video-block section-padding">
                <div class="row">
                   <div class="col-md-12">
-                     <h2 style="color: green;">Weather Forecast</h2>
+                     <h2 style="color: green; font-weight: bolder;">Weather Forecast</h2>
                      <hr>
                      <div class="main-title">
                         <h6>Click the "current location" icon <br> <b>OR</b> <br> Search for your current locaton <br> <b>OR</b> <br> Drag and drop the location pin from the map <br> <b>THEN</b> <br> Click Get Forecast</h6>
@@ -385,21 +387,21 @@
     </div>
 
    <!-- The core Firebase JS SDK is always required and must be listed first -->
-   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+   <!--<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
 
    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js"></script>
    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js"></script>-->
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
+    <!-- jQuery plugin -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Page optimiser -->
-    <!--<script src="public/dist/bundle.js"></script>-->
+    <script src="public/dist/bundle.js"></script>
 
     <!-- Owl Carousel -->
     <script src="vendor/owl-carousel/owl.carousel.js"></script>
@@ -407,9 +409,11 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/custom.js"></script>
+
     <!-- Index scripts (check authentication )-->
     <script src="js/authentication.js"></script>
     <script src="js/logout.js"></script>
+
     <!-- Weather  js info -->
     <script src="js/weather_map.js"></script>
     <script src="js/loader.js"></script>
