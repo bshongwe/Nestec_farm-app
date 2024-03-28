@@ -35,7 +35,7 @@ check_directories_exist() {
 
 # Function to check if CSS and Bootstrap files are linked in index.html
 check_css_bootstrap_links() {
-    if ! grep -q "bootstrap.css" "$INDEX_FILE" || ! grep -q "styles.css" "$INDEX_FILE"; then
+    if ! grep -q "bootstrap.css" "$INDEX_FILE" || ! grep -q "nestec.css" "$INDEX_FILE"; then
         echo "Error: CSS or Bootstrap files are not linked in index.html."
         exit 1
     fi
