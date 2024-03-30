@@ -1,0 +1,58 @@
+{
+  "name": "nestec backend-redis-mongo",
+  "version": "1.0.0",
+  "description": "nestec backend",
+  "main": "index.js",
+  "scripts": {
+    "server:development": "NODE_ENV=development nodemon ./src/server/Server.js --exec babel-node",
+    "server:test": "NODE_ENV=test nodemon ./src/server/Server.js --exec babel-node",
+    "test": "mocha --require babel-polyfill --compilers js:babel-register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bshongwe/Nestec_farm-app.git"
+  },
+  "keywords": [
+    "agriculture",
+    "farming",
+    "Node.js",
+    "Bootstrap",
+    "Firebase"
+  ],
+  "author": "Ernest Bhekizwe Shongwe - shongwe.bhekizwe@yahoo.com",
+  "license": "ISC",
+  "homepage": "",
+  "devDependencies": {
+    "async": "^2.5.0",
+    "axios": "^0.16.2",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "debug": "^2.6.8",
+    "ejs": "^2.5.7",
+    "file-loader": "^1.1.4",
+    "graceful-fs": "^4.1.11",
+    "lodash": "^4.17.4",
+    "method-override": "^2.3.9",
+    "mocha": "^3.5.3",
+    "moment": "^2.18.1",
+    "mongoose": "^4.11.14",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "redis": "^2.8.0",
+    "sha1": "^1.1.1",
+    "validator": "^8.0.0",
+    "webpack": "^3.6.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
