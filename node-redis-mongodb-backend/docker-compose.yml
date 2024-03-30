@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mongo:
+    image: "mongo"
+    expose:
+     - "27017"
+    ports:
+     - "27017:27017"
+    container_name: mongo_db
+  redis:
+    image: "redis:alpine"
+    expose:
+     - "6379"
+    ports:
+     - "6379:6379"
+    container_name: redis_db
