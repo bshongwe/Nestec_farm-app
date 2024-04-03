@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 // #1. APP ROUTE SETUP
 // #1.1 Serve index.html from <root>, </public>, </public/ai-models>
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/')));
 // app.use('/', express.static(path.join(__dirname, 'public')));
 // app.use('/ai-models', express.static(path.join(__dirname, 'public', 'ai-models')));
 // app.use(express.static(path.join(__dirname, 'public', 'ai-models')));
