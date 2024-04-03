@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, '/')));
 // app.use('/', express.static(path.join(__dirname, 'public')));
 // app.use('/ai-models', express.static(path.join(__dirname, 'public', 'ai-models')));
-// app.use(express.static(path.join(__dirname, 'public', 'ai-models')));
+app.use(express.static(path.join(__dirname, 'public', 'ai-models')));
 
 // #1.2 Define routes for specfic HTML files
 // #1.2.1 HOME: index.html
@@ -18,39 +18,39 @@ app.get('index.html', (req, res) => {
 });
 
 // #1.2.2 ABOUT: about.html
-// app.get('/about', (req, res) => {
-//  res.sendFile(path.join(__dirname, 'public', 'about.html'));
-// });
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'about.html'));
+});
 
 // #1.2.3 FEATURES: features.html
-// app.get('/features', (req, res) => {
-//  res.sendFile(path.join(__dirname, 'public', 'features.html'));
-// });
+app.get('/features', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'features.html'));
+});
 
 // #1.2.4 INVENTORY: inventory.html
-// app.get('/inventory', (req, res) => {
-//  res.sendFile(path.join(__dirname, 'public', 'inventory.html'));
-// });
+app.get('/inventory', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'inventory.html'));
+});
 
 // #1.2.5 NEWS: news.html
-// app.get('/news', (req, res) => {
-//  res.sendFile(path.join(__dirname, 'public', 'news.html'));
-// });
+app.get('/news', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'news.html'));
+});
 
 // #1.2.2 WEATHER: weather.html
-// app.get('/weather', (req, res) => {
-//  res.sendFile(path.join(__dirname, 'public', 'weather.html'));
-// });
+app.get('/weather', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'weather.html'));
+});
 
 // #1.2.3 LOGIN: login.html
-// app.get('/login', (req, res) => {
-//  res.sendFile(path.join(__dirname, 'public', 'login.html'));
-// });
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
 
 // #1.2.4 REGISTER: login.html
-// app.get('/register', (req, res) => {
-//  res.sendFile(path.join(__dirname, 'public', 'register.html'));
-// });
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'register.html'));
+});
 
 // # APP SERVER FRAMEWORK
 // Serve index.html as </root>
