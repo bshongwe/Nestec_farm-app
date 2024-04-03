@@ -2,7 +2,7 @@
 node_modules/
 
 # Build output (created by React)
-build/
+# build/
 
 # Dependency directory (if applicable)
 vendor/
