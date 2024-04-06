@@ -1,6 +1,4 @@
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  // Your web app's Firebase configuration
+  // Nestec Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
     apiKey: "AIzaSyB1q7lyp5sUJqhzYcFlcplhRWzPoFZ7S0M",
@@ -13,42 +11,47 @@
     measurementId: "G-YNB63MQKR8"
   };
 
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Firebase user configs
 firebase.auth().onAuthStateChanged(function(user) {
 if (user) {
-    // User is signed in.
+    // User is signed in
     console.log("logged in");
 
     const nestec_user = firebase.auth().currentUser;
 
-    //what will displayed on the header
+    // Header display
     var jina = nestec_user.displayName;
-
     var photo = nestec_user.photoURL;
 
     if (jina === null){
-    //if no dispaly name, we use the email address
+    // if no display name, use email address
     jina = nestec_user.email;
     }
     $('#user_profile').html(jina);
     if (photo != null){
-        //use the google photo
+        // if no display name, use Google photo
         $("#avatar").attr("hidden", true);
         $("#user_photo").attr("hidden", false);
         $("#user_photo").attr("src", photo);
     }
 } else {
+    // deafault display, not logged in
     console.log("Not logged in");
 }
 });
 
+// Executed when state of document changes
 document.onreadystatechange = function () {
+  // Get current state of the document
   var state = document.readyState;
+
+  // Elements visibility: Check if document is fully loaded
   if (state == 'complete') {
-         document.getElementById('interactive');
+         // ID checks: interactive, load
+         document.getElementById('interactive').style.visibility = "hidden";
          document.getElementById('load').style.visibility="hidden";
   }
 }

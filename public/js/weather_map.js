@@ -1,53 +1,50 @@
- // Public api key for maps
- mapboxgl.accessToken = 'pk.eyJ1IjoiY2VwaGFzLWtpbmciLCJhIjoiY2s3dGpnd2YxMHZ0YzNtb3VoenNmbmlrYyJ9.xojeHRyzsIqupEenk6nDGw';
+// Public api key for map
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2VwaGFzLWtpbmciLCJhIjoiY2s3dGpnd2YxMHZ0YzNtb3VoenNmbmlrYyJ9.xojeHRyzsIqupEenk6nDGw';
     
- // set the original coordinates
- var original_lat = -26.212685136383307;
- var original_long = 28.252900579123974;
- // get the coordinates of the marker
- var coordinates = document.getElementById('coordinates');
+// set original coordinates
+var original_lat = -26.212685136383307;
+var original_long = 28.252900579123974;
 
- var map = new mapboxgl.Map({
-     container: 'map', // container id
-     style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+// get coordinates element of marker
+var coordinates = document.getElementById('coordinates');
 
-     // camera options properties - https://docs.mapbox.com/help/glossary/camera/
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
 
-     // camera is set at an angle and is focused on Boksburg, Johannesburg
+    // camera options properties - https://docs.mapbox.com/help/glossary/camera/
+    // camera is set at an angle and is focused on Boksburg, Johannesburg
 
-     center: [28.252900579123974, -26.212685136383307], // starting position [lng, lat]
+    // starting position [lng, lat]
+    center: [28.252900579123974, -26.212685136383307],
 
-        //disabled because users may find the bearing difficult to remove
-        // it looks nice though for a navigation style map
+    // aditional zoom features disabled to imporove user-friendliness
+    // ##in degrees
+    // pitch: 60,
+    // bearing: 90,
+    zoom: 12
+});
 
-     //pitch: 60, //degrees
-     //bearing: 90, //degrees
-     zoom: 12 // starting zoom
- });
-// control on getting the location of the user
-// Initialize the geolocate control.
+// User location control
+// Initialize geolocate control
 var geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
         enableHighAccuracy: true
     },
     trackUserLocation: true
 });
-// Add the control to the map.
+// Map control
 map.addControl(geolocate);
 
-// try locating the user on load
+// Activates user location on load
 map.on('load', function() {
-
 geolocate.trigger();
-
 });
 
-
-
+// Changes marker to user's location after geolocation activation
 geolocate.on('geolocate', function(e) {
    var long = e.coords.longitude;
    var lat = e.coords.latitude;
-    // change the marker to the user's location once the the geolocation is activated
     marker.on('geolocate').setLngLat([long, lat]);
 
     coordinates.style.display = 'block';
@@ -58,62 +55,61 @@ geolocate.on('geolocate', function(e) {
     document.getElementById('lat').value = lat;
 });
 
-
-     // creating marker and setting it to default location: Boksburg
- var marker = new mapboxgl.Marker({
-     draggable: true,
-     color: 'orange'
-     })
-     .setLngLat([original_long, original_lat])
-     .addTo(map);
+// Creates marker, sets it to default location: Boksburg
+var marker = new mapboxgl.Marker({
+    draggable: true,
+    color: 'orange'
+    })
+    .setLngLat([original_long, original_lat])
+    .addTo(map);
      
-     function onDragEnd() {
-     var lngLat = marker.getLngLat();
-     coordinates.style.display = 'block';
-     coordinates.innerHTML =
-     'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
-
-     //obtaining the co-ordinates
-     var longitude = lngLat.lng;
-     var latitude = lngLat.lat;
-
-     document.getElementById('long').value = longitude;
-     document.getElementById('lat').value = latitude;
-     }
-     
- marker.on('dragend', onDragEnd);
-
-  //Create  the search box
-  var geocoder = new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken,
-    mapboxgl: mapboxgl,
-    marker: {
-        color: 'green'
-    },
-    placeholder: "Locations in South Africa",
-    //limit search to South Africa
-    countries: 'south'
-    });
-    // control the search box 
- map.addControl(geocoder, 'top-left');
-
- // On search, change the location of the orange marker to the location of the blue one (the one searched)
- geocoder.on('result', function(e) {
-    geocoder.clear();
-    var long = e.result.center[0];
-    var lat = e.result.center[1];
-
-    marker.setLngLat(e.result.center);
-
+    function onDragEnd() {
+    var lngLat = marker.getLngLat();
     coordinates.style.display = 'block';
     coordinates.innerHTML =
-    'Longitude: ' + long + '<br />Latitude: ' + lat;
-    
-    document.getElementById('long').value = long;
-    document.getElementById('lat').value = lat;
- });
+    'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
 
- //add compass and navigation
+    // Co-ordinates setup
+    var longitude = lngLat.lng;
+    var latitude = lngLat.lat;
+
+    document.getElementById('long').value = longitude;
+    document.getElementById('lat').value = latitude;
+    }
+     
+marker.on('dragend', onDragEnd);
+
+ // Creates  search box in map
+ var geocoder = new MapboxGeocoder({
+   accessToken: mapboxgl.accessToken,
+   mapboxgl: mapboxgl,
+   marker: {
+       color: 'green'
+   },
+   placeholder: "Locations in South Africa",
+   // limits search to South Africa
+   countries: 'south'
+   });
+   // controls the search box 
+map.addControl(geocoder, 'top-left');
+
+// On search, changes location of the orange marker to location of searched location
+geocoder.on('result', function(e) {
+   geocoder.clear();
+   var long = e.result.center[0];
+   var lat = e.result.center[1];
+
+   marker.setLngLat(e.result.center);
+
+   coordinates.style.display = 'block';
+   coordinates.innerHTML =
+   'Longitude: ' + long + '<br />Latitude: ' + lat;
+    
+   document.getElementById('long').value = long;
+   document.getElementById('lat').value = lat;
+});
+
+ // Adds compass and navigation
  var nav = new mapboxgl.NavigationControl();
  map.addControl(nav, 'top-right');
 
@@ -124,33 +120,25 @@ geolocate.on('geolocate', function(e) {
  
 });
 
-/*  **************************** End of Mapbox Functions /*  **************************** */
-
+/*  **************************** End of Mapbox Functions ******************************** */
 
 /*  ****************************  Open Weather Map  API ********************************* */
 const form = document.getElementById('weatherForm');
-
 const apiKey = "4d6df78011ac548d43caecc4657d434b";
 
-// Processing begins right after submission
-
+// Get weather info (after submission)
 form.addEventListener("submit", function(e) {
     e.preventDefault();
-
+    // Get by Coordinates
     const form_longitude = document.getElementById('long').value;
-
     const form_latitude = document.getElementById('lat').value;
- 
-
+    // Populate weather info
     const parent_div = document.getElementById("long_term_weather_cards");
-
     const short_term_cards = document.getElementsByClassName("owl-wrapper")[0];
-    
 
     parent_div.replaceChildren();
     
-
-    // AJAX call to open weather API for a 30 day forecast
+    // AJAX call: 30-day forecast
     const url = `https://pro.openweathermap.org/data/2.5/forecast/climate?lat=${form_latitude}&lon=${form_longitude}&appid=${apiKey}&units=metric`;
 
     fetch(url)
@@ -241,7 +229,6 @@ form.addEventListener("submit", function(e) {
             const icon =  `https://openweathermap.org/img/wn/${icon_id}@2x.png`;
             var cloudiness = current_list.clouds.all;
             var probability = current_list.pop;
-            //var rain_amount = current_list.rain.1h;
 
             const corousel_div = document.getElementById("item"+i);
             corousel_div.replaceChildren();
@@ -273,7 +260,6 @@ form.addEventListener("submit", function(e) {
           
             one_corousel.innerHTML = markup2;
             corousel_div.appendChild(one_corousel);
-            //short_term_cards.appendChild(corousel_div);
 
             
         }
@@ -285,9 +271,7 @@ form.addEventListener("submit", function(e) {
 
 });
 
-
-
-
+// Calendar
 function timeConverter(UNIX_timestamp){
     var a = new Date(UNIX_timestamp * 1000);
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -299,4 +283,4 @@ function timeConverter(UNIX_timestamp){
     var sec = a.getSeconds();
     var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
     return time;
-  }
+}
