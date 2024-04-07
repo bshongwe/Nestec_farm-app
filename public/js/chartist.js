@@ -1,5 +1,7 @@
+#!/usr/bin/node
+
 (function($) {
-  //simple line
+  // simple line
   'use strict';
   if ($('#ct-chart-line').length) {
     new Chartist.Line('#ct-chart-line', {
@@ -17,7 +19,7 @@
     });
   }
 
-  //Line scatterer
+  // Line scatterer
   var times = function(n) {
     return Array.apply(null, new Array(n));
   };
@@ -58,7 +60,7 @@
     new Chartist.Line('#ct-chart-line-scatterer', data, options, responsiveOptions);
   }
 
-  //Stacked bar Chart
+  // Stacked bar Chart
   if ($('#ct-chart-stacked-bar').length) {
     new Chartist.Bar('#ct-chart-stacked-bar', {
       labels: ['Q1', 'Q2', 'Q3', 'Q4'],
@@ -85,7 +87,7 @@
   }
 
 
-  //Horizontal bar chart
+  // Horizontal bar chart
   if ($('#ct-chart-horizontal-bar').length) {
     new Chartist.Bar('#ct-chart-horizontal-bar', {
       labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -115,7 +117,7 @@
     });
   }
 
-  //Pie
+  // Pie
   if ($('#ct-chart-pie').length) {
     var data = {
       series: [5, 3, 4]
@@ -132,7 +134,7 @@
     });
   }
 
-  //Donut
+  // Donut
   var labels = ['safari', 'chrome', 'explorer', 'firefox'];
   var data = {
     series: [20, 40, 10, 30]
@@ -154,7 +156,7 @@
 
 
 
-  //Dashboard Tickets Chart
+  // Dashboard Tickets Chart
   if ($('#ct-chart-dash-barChart').length) {
     new Chartist.Bar('#ct-chart-dash-barChart', {
       labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
@@ -179,7 +181,7 @@
     });
   }
 
-  //dashboard staked bar chart
+  // dashboard staked bar chart
   if ($('#ct-chart-vartical-stacked-bar').length) {
     new Chartist.Bar('#ct-chart-vartical-stacked-bar', {
       labels: ['J', 'F', 'M', 'A', 'M', 'J', 'A'],

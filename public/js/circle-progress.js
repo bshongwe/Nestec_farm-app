@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 (function($) {
   'use strict';
   if ($(".circle-progress-1").length) {

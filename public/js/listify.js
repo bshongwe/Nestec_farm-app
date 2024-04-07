@@ -1,8 +1,10 @@
-  (function($) {
-    'use strict';
-    var options = {
-      valueNames: ['name', 'born']
-    };
+#!/usr/bin/node
 
-    var userList = new List('users', options);
-  })(jQuery);
+(function($) {
+  'use strict';
+  var options = {
+    valueNames: ['name', 'born']
+  };
+
+  var userList = new List('users', options);
+})(jQuery);

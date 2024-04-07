@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 (function($) {
   'use strict';
   var editor = ace.edit("aceExample");

@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 setTimeout(function () {
     const loader = document.getElementById('loading');
     const body = document.getElementById("body-content");

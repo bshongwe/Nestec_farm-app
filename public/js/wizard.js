@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 // Multi-step Wizard Form
 (function($) {
   // For error-handling

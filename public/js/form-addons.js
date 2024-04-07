@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 (function($) {
   'use strict';
 
@@ -139,8 +141,6 @@
 
     ratingEnable();
   });
-
-
   // Jquery Bar Rating Ends
 
 })(jQuery);

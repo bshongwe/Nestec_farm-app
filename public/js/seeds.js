@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 $('#county').on('change', function(e) {
     var county = document.getElementById("county").value;
     var zone_element = document.getElementById('zone');

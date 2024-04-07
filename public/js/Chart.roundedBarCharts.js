@@ -1,3 +1,4 @@
+#!/usr/bin/node
 /*
 *   Rounded Rectangle Extension for Bar Charts and Horizontal Bar Charts
 *   Tested with Charts.js 2.7.0

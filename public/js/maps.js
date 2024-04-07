@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 var map;
 if ($('#map').length) {
   function initMap() {

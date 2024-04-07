@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 (function($) {
   'use strict';
   // ProgressBar JS Starts Here
@@ -33,7 +35,6 @@
         } else {
           circle.setText(value);
         }
-
       }
     });
 
@@ -72,7 +73,6 @@
         } else {
           circle.setText(value);
         }
-
       }
     });
 
@@ -111,7 +111,6 @@
         } else {
           circle.setText(value);
         }
-
       }
     });
 
@@ -150,7 +149,6 @@
         } else {
           circle.setText(value);
         }
-
       }
     });
 
@@ -189,7 +187,6 @@
         } else {
           circle.setText(value);
         }
-
       }
     });
 
@@ -228,12 +225,10 @@
         } else {
           circle.setText(value);
         }
-
       }
     });
 
     bar.text.style.fontSize = '1rem';
     bar.animate(.95); // Number from 0.0 to 1.0
   }
-
 })(jQuery);

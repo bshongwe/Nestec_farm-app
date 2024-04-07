@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 var g1, g2, gg1, g7, g8, g9, g10;
 
 window.onload = function() {
@@ -15,9 +17,6 @@ window.onload = function() {
     g1.refresh(getRandomInt(50, 100));
   }, 2500);
 };
-
-
-
 
 document.addEventListener("DOMContentLoaded", function(event) {
   g2 = new JustGage({
@@ -189,5 +188,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
     g9.refresh(getRandomInt(0, 100));
     g10.refresh(getRandomInt(0, 100));
   });
-
 });

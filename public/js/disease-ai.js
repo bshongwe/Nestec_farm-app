@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 $(function() {
 	retrieveDefaultValuesFromLocalStorage();
 	setupButtonListeners();

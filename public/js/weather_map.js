@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 // Public api key for map
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2VwaGFzLWtpbmciLCJhIjoiY2s3dGpnd2YxMHZ0YzNtb3VoenNmbmlrYyJ9.xojeHRyzsIqupEenk6nDGw';
     

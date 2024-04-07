@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 (function($) {
   'use strict';
   $(function() {
@@ -12,7 +14,6 @@
         todoListItem.append("<li><div class='form-check'><label class='form-check-label'><input class='checkbox' type='checkbox'/>" + item + "<i class='input-helper'></i></label></div><i class='remove ti-close'></i></li>");
         todoListInput.val("");
       }
-
     });
 
     todoListItem.on('change', '.checkbox', function() {
@@ -29,6 +30,5 @@
     todoListItem.on('click', '.remove', function() {
       $(this).parent().remove();
     });
-
   });
 })(jQuery);
