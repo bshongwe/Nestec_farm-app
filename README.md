@@ -1,7 +1,12 @@
 # Nestec
+##Introduction
 
-This is an agriculture app whose name was derived from
-my name and technology
+Welcome to Nestec! Nestec is an innovative agriculture app designed to streamline farm management tasks and optimize agricultural operations. Whether you're a small-scale farmer or managing a large farm, Nestec offers tools to enhance productivity and efficiency.
+
+    Deployed Site: https://bshongwe.github.io/Nestec_farm-app/
+    Landing Page: https://bshongwe.github.io/Nestec_farm-app-landing-page/
+    Final Project Blog Article: https://medium.com/@shongwe.bhekizwe/nestec-portfolio-project-blog-post-6361fadaa45f
+    Author(s) LinkedIn: https://www.linkedin.com/in/ernest-shongwe-31138b8b/
 
 # Stack
 ### Backend Dependencies:
@@ -18,6 +23,13 @@ Tokens for authentication
 
 #### to be added at a later stage
 7. **twilio**: Python library for Twilio API
+
+<br></br>
+### APIs
+1. Roboflow YOLO v8
+2. OpenWeather API
+3. Other API (not mentioned due to permission grant Ts &
+Cs)
 
 <br></br>
 ### Frontend Dependencies:
@@ -136,6 +148,17 @@ Make sure to replace `<mongo_port>`, `<redis_port>`, and
 `<node_port>` with the actual ports you're using for
 MongoDB, Redis, and your Node server respectively.
 ```
+
+# Additional Notes
+-   App will continue being developed to add more features
+-   Challenges:
+    -   production for deployment (`run build` requires
+    attention)
+    -   database migration: Firebase to MongoDB & Redis
+    -   React Material routing on a mounted React framework
+    -   Node.js static file feed
+
+<br></br>
 
 # Screen Shots of App
 ## Features
