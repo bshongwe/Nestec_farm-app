@@ -1,12 +1,17 @@
 #!/usr/bin/node
 
+// Sub menu hover effects
 (function($) {
   'use strict';
-  // Open submenu on hover in compact sidebar mode and horizontal menu mode
+  /* Open submenu on hover in compact sidebar mode and
+   * horizontal menu mode
+   */
   $(document).on('mouseenter mouseleave', '.sidebar .nav-item', function(ev) {
     var body = $('body');
     var sidebarIconOnly = body.hasClass("sidebar-icon-only");
     var sidebarFixed = body.hasClass("sidebar-fixed");
+
+    // For touch devices only: sidebar or fixed
     if (!('ontouchstart' in document.documentElement)) {
       if (sidebarIconOnly) {
         if (sidebarFixed) {
@@ -14,6 +19,9 @@
             body.removeClass('sidebar-icon-only');
           }
         } else {
+          /* If sidebar is not fixed, add hover-open class on
+           * mouseenter to show submenu
+           */
           var $menuItem = $(this);
           if (ev.type === 'mouseenter') {
             $menuItem.addClass('hover-open')

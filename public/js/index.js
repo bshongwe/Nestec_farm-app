@@ -1,7 +1,9 @@
 #!/usr/bin/node
 
-// Nestec Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+/* Nestec Firebase configuration
+ * For Firebase JS SDK v7.20.0 and later,
+ * measurementId is optional
+ */
 var firebaseConfig = {
   apiKey: "AIzaSyB1q7lyp5sUJqhzYcFlcplhRWzPoFZ7S0M",
   authDomain: "nestec-41396.firebaseapp.com",

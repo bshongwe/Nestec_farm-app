@@ -5,28 +5,28 @@ my name and technology
 
 # Stack
 ### Backend Dependencies:
-1. **Express**: For building the RESTful API and handling HTTP requests.
-2. **Mongoose**: For interacting with MongoDB database.
-3. **dotenv**: For loading environment variables from the `.env` file.
-4. **bcrypt**: For hashing passwords.
-5. **jsonwebtoken**: For generating and verifying JSON Web Tokens for authentication.
-6. **FastAPI**: For building the backend API.
-7. **pymongo**: Python driver for MongoDB.
-8. **twilio**: Python library for Twilio API.
-9. **gcloud**: Python library for Google Cloud Platform.
-10. **Python**
-11. **pip
+1. **Express**: For building the RESTful API and handling
+HTTP requests
+2. **Mongoose**: For interacting with MongoDB database
+3. **dotenv**: For loading environment variables from the
+`.env` file
+4. **bcrypt**: For hashing passwords
+5. **jsonwebtoken**: For generating and verifying JSON Web
+Tokens for authentication
+6. **Redis-CLI**: for the cache database server
+7. **Node.js**: Server
 
+#### to be added at a later stage
+7. **twilio**: Python library for Twilio API
+
+<br></br>
 ### Frontend Dependencies:
-1. **react-router-dom**: For client-side routing.
-2. **axios**: For making HTTP requests to the backend API.
-3. **React.js**: For building the user interface.
-4. **React Bootstrap**: For styling and UI components.
-5. **Material-UI**: For additional UI components and styling.
-6. **Node.js**
-7. **npm**
+1. **react-router-dom**: For client-side routing
+2. **axios**: For making HTTP requests to the backend API
+4. **Bootstrap**: For styling and UI components
+6. **Node.js**: API
 
-# Development Procedure followed
+# Example of Development Procedure Followed
 ### Backend Dependencies:
 1. Navigate to the `backend` directory:
    ```
@@ -43,36 +43,104 @@ my name and technology
    npm install express mongoose dotenv bcrypt jsonwebtoken
    ```
 
-4. Install FastAPI, pymongo, twilio, and gcloud using pip:
-   ```
-   pip install fastapi pymongo twilio google-cloud
-   ```
-
+<br></br>
 ### Frontend Dependencies:
-1. Create a new React app using Create React App:
+1. Navigate to the `<repo root>` directory:
    ```
-   npx create-react-app frontend
-   ```
-
-2. Navigate to the `frontend` directory:
-   ```
-   cd ../frontend
+   cd ../<repo root>
    ```
 
-3. Initialize npm (if not already initialized):
+3. Initialize npm:
    ```
    npm init -y
    ```
 
 4. Install required dependencies:
    ```
-   npm install react react-dom react-router-dom axios
+   npm install axios
    ```
 
-5. Install React Bootstrap and Material-UI using npm:
+<br></br>
+
+## Installation
+
+To install and run Nestec on your local machine, follow
+these steps:
+
+1. Clone this repository to your local machine.
    ```
-   npm install react-bootstrap@next @mui/material @emotion/react @emotion/styled
+   git clone https://github.com/bshongwe/Nestec_farm-app.git
    ```
 
+2. Navigate to the project directory.
+   ```
+   cd Nestec_farm-app
+   ```
 
+3. Install dependencies for the frontend and backend.
+   ```
+   cd /<repo root>
+   npm install
+   cd ../node-redis-mongodb-backend
+   npm install
+   ```
 
+4. Ensure you have MongoDB and Redis installed and running
+on your machine. Make sure to note down the MongoDB and
+Redis ports.
+
+5. Create a `.env` file in the `cache-aside pattern server`
+directory and provide the necessary environment variables.
+   ```
+   MONGODB_URI=mongodb://localhost:<mongo_port>/nestec
+   REDIS_URI=redis://localhost:<redis_port>
+   PORT=<node_port>
+   ```
+
+   Replace `<mongo_port>`, `<redis_port>`, and
+   `<node_port>` with the respective ports for MongoDB,
+   Redis and Node server.
+
+6. To start the servers
+
+#### NodeJS Server
+   ```
+   cd ../<repo root>
+   npm start
+   ```
+   or
+   ```
+   node server.js
+   ```
+   <strong>N. B.:</strong> the front end static files are
+   automatically served into the backend server when the
+   Node server runs. <i>Check the API routes. Adjust with
+   caution.</i>
+
+<br></br>
+#### Cache-aside Server
+   ```
+   cd ../node-redis-mongodb-backend
+   npm start
+   ```
+
+8. Access the application in browser using the following
+ports at:<br>
+-   frontend: `http://localhost:3000`
+-   backendend (<i>to run the backend servers</i>:
+    -   MongoDB: `http://localhost:3030`
+    -   Redis: `http://localhost:11136`
+
+```
+Make sure to replace `<mongo_port>`, `<redis_port>`, and
+`<node_port>` with the actual ports you're using for
+MongoDB, Redis, and your Node server respectively.
+```
+
+# Screen Shots of App
+<div align="center">
+  <br />
+    <a href="https://youtu.be/3jwDbdasbdM?si=MPgDvs8U4NqRw5vs" target="_blank">
+      <img src="https://github.com/" alt="Project Banner">
+    </a>
+  <br />
