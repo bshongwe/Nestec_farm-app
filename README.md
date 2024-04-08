@@ -1,12 +1,26 @@
 # Nestec
-##Introduction
+## Introduction
 
-Welcome to Nestec! Nestec is an innovative agriculture app designed to streamline farm management tasks and optimize agricultural operations. Whether you're a small-scale farmer or managing a large farm, Nestec offers tools to enhance productivity and efficiency.
+Welcome to Nestec! Nestec is an innovative agriculture app
+designed to streamline farm management tasks and optimize
+agricultural operations. Whether you're a small-scale
+farmer or managing a large farm, Nestec offers tools to
+enhance productivity and efficiency.
 
-    Deployed Site: https://bshongwe.github.io/Nestec_farm-app/
-    Landing Page: https://bshongwe.github.io/Nestec_farm-app-landing-page/
-    Final Project Blog Article: https://medium.com/@shongwe.bhekizwe/nestec-portfolio-project-blog-post-6361fadaa45f
-    Author(s) LinkedIn: https://www.linkedin.com/in/ernest-shongwe-31138b8b/
+#### Slogan:
+Empowering farmers, one harvest at a time
+
+#### Deployed Site:
+https://bshongwe.github.io/Nestec_farm-app/
+
+#### Landing Page:
+https://bshongwe.github.io/Nestec_farm-app-landing-page/
+
+#### Final Project Blog Article:
+https://medium.com/@shongwe.bhekizwe/nestec-portfolio-project-blog-post-6361fadaa45f
+
+#### Author's LinkedIn:
+https://www.linkedin.com/in/ernest-shongwe-31138b8b/
 
 # Stack
 ### Backend Dependencies:
