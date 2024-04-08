@@ -138,9 +138,44 @@ MongoDB, Redis, and your Node server respectively.
 ```
 
 # Screen Shots of App
+## Features
 <div align="center">
   <br />
     <a href="https://youtu.be/3jwDbdasbdM?si=MPgDvs8U4NqRw5vs" target="_blank">
-      <img src="https://github.com/" alt="Project Banner">
+      <img src="public/img/Nestec-2.PNG">
     </a>
   <br />
+</div>
+## Market News
+<div align="center">
+  <br />
+    <a href="https://youtu.be/3jwDbdasbdM?si=MPgDvs8U4NqRw5vs" target="_blank">
+      <img src="public/img/Nestec-3.PNG">
+    </a>
+  <br />
+</div>
+## Weather API
+<i>(MongoDB Data test)</i>
+<div align="center">
+  <br />
+    <a href="https://youtu.be/3jwDbdasbdM?si=MPgDvs8U4NqRw5vs" target="_blank">
+      <img src="public/img/Nestec-testing-weather-API-on-Mongo.PNG">
+    </a>
+  <br />
+</div>
+## Data Storage Model
+<div align="center">
+  <br />
+    <a href="https://youtu.be/3jwDbdasbdM?si=MPgDvs8U4NqRw5vs" target="_blank">
+      <img src="public/img/Nestec web infrastructure data modelling_2.PNG">
+    </a>
+  <br />
+</div>
+## Nestec web infrastructure
+<div align="center">
+  <br />
+    <a href="https://youtu.be/3jwDbdasbdM?si=MPgDvs8U4NqRw5vs" target="_blank">
+      <img src="public/img/Nestec web infrastructure_FINAL-node-js-redis-mongo.PNG">
+    </a>
+  <br />
+</div>
