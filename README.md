@@ -7,19 +7,19 @@ agricultural operations. Whether you're a small-scale
 farmer or managing a large farm, Nestec offers tools to
 enhance productivity and efficiency.
 
-#### Slogan:
+### Slogan:
 Empowering farmers, one harvest at a time
 
-#### Deployed Site:
+### Deployed Site:
 https://bshongwe.github.io/Nestec_farm-app/
 
-#### Landing Page:
+### Landing Page:
 https://bshongwe.github.io/Nestec_farm-app-landing-page/
 
-#### Final Project Blog Article:
+### Final Project Blog Article:
 https://medium.com/@shongwe.bhekizwe/nestec-portfolio-project-blog-post-6361fadaa45f
 
-#### Author's LinkedIn:
+### Author's LinkedIn:
 https://www.linkedin.com/in/ernest-shongwe-31138b8b/
 
 # Stack
