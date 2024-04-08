@@ -146,6 +146,8 @@ MongoDB, Redis, and your Node server respectively.
     </a>
   <br />
 </div>
+<br></br>
+
 ## Market News
 <div align="center">
   <br />
@@ -154,6 +156,8 @@ MongoDB, Redis, and your Node server respectively.
     </a>
   <br />
 </div>
+<br></br>
+
 ## Weather API
 <i>(MongoDB Data test)</i>
 <div align="center">
@@ -163,6 +167,8 @@ MongoDB, Redis, and your Node server respectively.
     </a>
   <br />
 </div>
+<br></br>
+
 ## Data Storage Model
 <div align="center">
   <br />
@@ -171,6 +177,8 @@ MongoDB, Redis, and your Node server respectively.
     </a>
   <br />
 </div>
+<br></br>
+
 ## Nestec web infrastructure
 <div align="center">
   <br />
