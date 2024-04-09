@@ -165,6 +165,13 @@ MongoDB, Redis, and your Node server respectively.
 
 # Additional Notes
 -   App will continue being developed to add more features
+-   Project Reviewer(s) recommendations:
+    -   User auth should also cover all the other contents
+    beyond the home page and be render inaccessible until
+    auth is completed
+    -   Recommendations by:
+        - Seth Ketsi (Cohort 16)
+        - Robert Adede (Cohort 17)
 -   Challenges:
     -   production for deployment (`run build` requires
     attention)
