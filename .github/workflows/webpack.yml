@@ -29,9 +29,10 @@ jobs:
     - name: Build project with Webpack
       run: npx webpack
 
-    - name: Save build artifact
+    - name: Upload build artifact
       uses: actions/upload-artifact@v3
       with:
-        name: build
-        path: build
+        name: build  # Name of artifact
+        path: build  # Build directory
+
 
