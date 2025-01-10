@@ -1,0 +1,31 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: ["NodeJS with Webpack"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16.x'  # Use a specific Node.js version
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npx webpack
+
+    - name: Deploy to server
+      run: |
+        # Add deployment commands here, e.g., SSH into your server and start the app
+        ssh user@https://nestec-farm-app.onrender.com 'pm2 stop all && pm2 start server.js'
