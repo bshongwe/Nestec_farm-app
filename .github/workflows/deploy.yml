@@ -18,30 +18,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Attempt to download build artifact
-      id: download-artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: build  # Match the artifact name in webpack.yml
-      continue-on-error: true  # Allow the workflow to continue if artifact is missing
+    - name: Install dependencies
+      run: npm ci
 
-    - name: Check if artifact exists
-      id: artifact-check
-      run: |
-        if [ ! -d "build" ]; then
-          echo "Artifact not found. Setting 'needs_build' to true."
-          echo "needs_build=true" >> $GITHUB_ENV
-        else
-          echo "Artifact found. Proceeding with deployment."
-          echo "needs_build=false" >> $GITHUB_ENV
-        fi
-
-    - name: Build project (if artifact is missing)
-      if: env.needs_build == 'true'
-      run: |
-        echo "Building the project since artifact is missing..."
-        npm ci
-        npx webpack --config webpack.config.js
+    - name: Build project with Webpack
+      run: npx webpack --config webpack.config.js
 
     - name: Deploy to Render
       run: |
