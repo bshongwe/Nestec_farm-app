@@ -41,10 +41,11 @@ jobs:
       run: |
         echo "Building the project since artifact is missing..."
         npm ci
-        npx webpack
+        npx webpack --config webpack.config.js
 
     - name: Deploy to Render
       run: |
+        echo "Initiating deployment to Render..."
         RESPONSE=$(curl -s -o response.json -w "%{http_code}" \
           "https://api.render.com/deploy/srv-co0i526d3nmc73f7ncq0?key=${{ secrets.RENDER_API_KEY }}")
 
@@ -53,6 +54,10 @@ jobs:
         cat response.json
 
         if [ "$RESPONSE" -ne 200 ]; then
-          echo "Deployment failed!" >&2
+          echo "Deployment failed!"
+          echo "Error details from Render API:"
+          cat response.json
           exit 1
+        else
+          echo "Deployment succeeded!"
         fi
