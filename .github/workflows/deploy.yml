@@ -26,16 +26,18 @@ jobs:
       run: npx webpack
 
     - name: Deploy to Render
+      id: deploy_to_render
       run: |
-        RESPONSE=$(curl -X POST -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
-        -H "Content-Type: application/json" \
-        -d '{"serviceId": "${{ secrets.RENDER_SERVICE_ID }}"}' \
-        https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys)
+        RESPONSE=$(curl -s -o response.json -w "%{http_code}" \
+          "https://api.render.com/deploy/srv-co0i526d3nmc73f7ncq0?key=${{ secrets.RENDER_API_KEY }}")
 
-        echo "Render API response: $RESPONSE"
+        echo "HTTP Response Code: $RESPONSE"
+        echo "Render API Response:"
+        cat response.json
 
-        if [[ $RESPONSE != *"successful"* ]]; then
+        if [ "$RESPONSE" -ne 200 ]; then
           echo "Deployment failed!" >&2
           exit 1
         fi
+
 
