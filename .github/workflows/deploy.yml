@@ -47,7 +47,7 @@ jobs:
       run: |
         echo "Initiating deployment to Render..."
         RESPONSE=$(curl -s -o response.json -w "%{http_code}" \
-          "https://api.render.com/deploy/srv-co0i526d3nmc73f7ncq0?key=${{ secrets.RENDER_API_KEY }}")
+          "https://api.render.com/deploy/${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}")
 
         echo "HTTP Response Code: $RESPONSE"
         echo "Render API Response:"
