@@ -55,4 +55,4 @@ jobs:
         if [ "$RESPONSE" -ne 200 ]; then
           echo "Deployment failed!" >&2
           exit 1
-
+        fi
