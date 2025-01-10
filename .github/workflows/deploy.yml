@@ -17,17 +17,25 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16.x'  # Use a specific Node.js version
+        node-version: '16.x' # Specify the Node.js version for deployment
 
     - name: Install dependencies
-      run: npm install
+      run: npm ci
 
     - name: Build project
       run: npx webpack
 
     - name: Deploy to Render
       run: |
-        curl -X POST -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+        RESPONSE=$(curl -X POST -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
         -H "Content-Type: application/json" \
         -d '{"serviceId": "${{ secrets.RENDER_SERVICE_ID }}"}' \
-        https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys
+        https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys)
+
+        echo "Render API response: $RESPONSE"
+
+        if [[ $RESPONSE != *"successful"* ]]; then
+          echo "Deployment failed!" >&2
+          exit 1
+        fi
+
