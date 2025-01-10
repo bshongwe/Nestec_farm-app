@@ -25,7 +25,9 @@ jobs:
     - name: Build project
       run: npx webpack
 
-    - name: Deploy to server
+    - name: Deploy to Render
       run: |
-        # Add deployment commands here, e.g., SSH into your server and start the app
-        ssh user@https://nestec-farm-app.onrender.com 'pm2 stop all && pm2 start server.js'
+        curl -X POST -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+        -H "Content-Type: application/json" \
+        -d '{"serviceId": "${{ secrets.RENDER_SERVICE_ID }}"}' \
+        https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys
