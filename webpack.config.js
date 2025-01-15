@@ -7,7 +7,7 @@ module.exports = {
   entry: './public/js/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public/dist'),
+    path: path.resolve(__dirname, 'public/build'),
     publicPath: '/build/' // Added publicPath for serving assets from the correct path
   },
   module: {
