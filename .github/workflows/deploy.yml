@@ -22,7 +22,7 @@ jobs:
       id: download-artifact
       uses: actions/download-artifact@v3
       with:
-        name: build  # Artifacts name in webpack.yml
+        name: build  # Artifact name from webpack.yml
       continue-on-error: true  # Workflow bypass if artifact is missing
 
     - name: Check if artifact exists
@@ -53,11 +53,11 @@ jobs:
         echo "Render API Response:"
         cat response.json
 
-        if [ "$RESPONSE" -ne 200 ]; then
+        if [[ "$RESPONSE" =~ ^2[0-9][0-9]$ ]]; then
+          echo "Deployment succeeded!"
+        else
           echo "Deployment failed!"
           echo "Error details from Render API:"
           cat response.json
           exit 1
-        else
-          echo "Deployment succeeded!"
         fi
