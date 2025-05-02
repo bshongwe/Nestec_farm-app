@@ -20,7 +20,7 @@ jobs:
 
     - name: Attempt to download build artifact
       id: download-artifact
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: build  # Artifact name from webpack.yml
       continue-on-error: true  # Workflow bypass if artifact is missing
